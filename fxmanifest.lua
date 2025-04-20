@@ -7,12 +7,17 @@ version '1.0.0'
 
 client_scripts {
     'config.lua',
-    'client.lua',
+    'clients/**/*.lua',
 }
 
-ui_page 'ui/index.html'
+server_scripts {
+    'config.lua',
+    'servers/**/*.lua',
+}
+
+ui_page 'ui/dist/ui/browser/index.html'
 
 files {
-    'ui/index.html',
-    'ui/**/*',
+    'ui/dist/ui/browser/index.html',
+    'ui/dist/ui/browser/**/*',
 }
