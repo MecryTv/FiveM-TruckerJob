@@ -1,0 +1,25 @@
+<div class="ui-container" [class.visible]="visible">
+  <div class="header">
+    <h1>GTA 5 TruckerJob Interface</h1>
+    <button class="close-btn" (click)="closeUI()">X</button>
+  </div>
+
+  <div class="content">
+    <div class="sidebar">
+      <button (click)="executeAction('button1')">Option 1</button>
+      <button (click)="executeAction('button2')">Option 2</button>
+      <button (click)="executeAction('button3')">Option 3</button>
+      <button (click)="executeAction('button4')">Option 4</button>
+    </div>
+
+    <div class="main-content">
+      <h2>Willkommen bei TruckerJob</h2>
+      <p>
+        Dies ist deine benutzerdefinierte FiveM-Benutzeroberfläche, die sich
+        beim Drücken von F1 öffnet.
+      </p>
+      <p>Wähle eine Option aus der Seitenleiste, um zu beginnen.</p>
+      <p>Größe: 1000x700 Pixel (fest in CSS definiert)</p>
+    </div>
+  </div>
+</div>
