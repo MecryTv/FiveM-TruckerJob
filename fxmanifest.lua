@@ -10,9 +10,9 @@ client_scripts {
     'client.lua',
 }
 
-ui_page 'ui/dist/ui/index.html'
+ui_page 'ui/index.html'
 
 files {
-    'ui/dist/ui/index.html',
-    'ui/dist/ui/**/*',
+    'ui/index.html',
+    'ui/**/*',
 }

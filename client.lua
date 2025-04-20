@@ -1,7 +1,11 @@
-local display = false
+local uiActive = false
 
 RegisterCommand("truckerjob:toggleUI", function ()
-    SetDisplay(not display)
+    if uiActive then
+        SetDisplay(false)
+    else
+        SetDisplay(true)
+    end
 end, false)
 
 RegisterKeyMapping("truckerjob:toggleUI", "Toggle Trucker Job UI", "keyboard", Config.OpenUIKey)
@@ -21,7 +25,7 @@ RegisterNUICallback("action", function (data, cb)
 end)
 
 function SetDisplay(bool) 
-    display = bool
+    uiActive = bool
     SetNuiFocus(bool, bool)
     SendNUIMessage({
         type = "ui",
