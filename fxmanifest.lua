@@ -1,5 +1,6 @@
 fx_version 'cerulean'
 game 'gta5'
+lua54 'yes'
 
 author 'MecryTv'
 description 'Trucker Job with custom UI'
@@ -15,9 +16,13 @@ server_scripts {
     'servers/**/*.lua',
 }
 
-ui_page 'ui/dist/ui/browser/index.html'
+ui_page 'ui/index.html'
 
 files {
-    'ui/dist/ui/browser/index.html',
-    'ui/dist/ui/browser/**/*',
+    'ui/index.html',
+    'ui/jquery.js',
+    'ui/script.js',
+    'ui/style.css',
+    'ui/img/icon.png',
+    'ui/img/avatar.png',
 }

@@ -1,28 +1,14 @@
-local function toggleUI(toggle)
-    SetNuiFocus(toggle, toggle)
-    SendAngularMessage("setVisible", toggle)
-end
-
-RegisterCommand("showUI", function()
-    toggleUI(true)
-    debugLog("UI toggled to true")
+Citizen.CreateThread(function()
+   Wait(500)
+   TriggerEvent("showLogo")
+   Wait(2500)
+   TriggerEvent("hideLogo")
 end)
 
-RegisterNUICallback("truckerjob:hideUI", function(_, cb)
-    toggleUI(false)          -- call the correct function
-    debugLog("Hide NUI frame")
-    cb({})
+RegisterNetEvent("showLogo", function()
+   SendNUIMessage({ type = "show" })
 end)
 
-RegisterNUICallback("truckerjob:getClientData", function(data, cb)
-    debugLog("Data sent by Angular", json.encode(data))
-
-    -- Send back client coords to the Angular app for use
-    local curCoords = GetEntityCoords(PlayerPedId())
-    local retData = {      -- dropped the '<const>' annotation
-        x = curCoords.x,
-        y = curCoords.y,
-        z = curCoords.z
-    }
-    cb(retData)
+RegisterNetEvent("hideLogo", function()
+   SendNUIMessage({ type = "hide" })
 end)
