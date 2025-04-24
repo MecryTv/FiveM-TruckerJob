@@ -5,8 +5,7 @@ $(document).ready(function() {
 
     // Close Button Event Listener
     $(document).on('click', '#close-btn', function() {
-        $('#app').hide();
-        $.post('https://' + GetParentResourceName() + '/truckerjob:hideUI', JSON.stringify({}));
+        $.post('https://' + GetParentResourceName() + '/hideUI');
     });
 
     window.addEventListener('message', (event) => {
@@ -23,11 +22,7 @@ $(document).ready(function() {
 
                 dashboardIsVisible = isDashboardActive;
 
-                if (isDashboardActive && window.resetAndStartDashboardAnimation) {
-                    setTimeout(function() {
-                        window.resetAndStartDashboardAnimation();
-                    }, 600);
-                }
+                // Dashboard-Animationen entfernt
                 break;
             case "hide":
                 $('#app').hide();
@@ -61,12 +56,8 @@ $(document).ready(function() {
             loadComponent(targetSection, function() {
                 if (goingToDashboard && !wasDashboardVisible) {
                     targetElement.show();
-                    window.resetAndStartDashboardAnimation();
                 } else if (goingToLeaderboard) {
                     targetElement.show();
-                    if (window.resetAndStartLeaderboardAnimation) {
-                        window.resetAndStartLeaderboardAnimation();
-                    }
                 } else {
                     targetElement.fadeIn(300);
                 }
@@ -74,12 +65,8 @@ $(document).ready(function() {
         } else {
             if (goingToDashboard && !wasDashboardVisible) {
                 targetElement.show();  // sofort sichtbar
-                window.resetAndStartDashboardAnimation();
             } else if (goingToLeaderboard) {
                 targetElement.show();
-                if (window.resetAndStartLeaderboardAnimation) {
-                    window.resetAndStartLeaderboardAnimation();
-                }
             } else {
                 targetElement.fadeIn(300);
             }
@@ -88,11 +75,7 @@ $(document).ready(function() {
 
 
     loadComponent('dashboard', function() {
-
-        if (window.resetAndStartDashboardAnimation) {
-            window.resetAndStartDashboardAnimation();
-        }
-
+        // Dashboard-Animationen entfernt
         loadComponent('jobs');
         loadComponent('skills');
         loadComponent('leaderboard');
@@ -124,9 +107,7 @@ $(document).ready(function() {
                     scriptLoaded = true;
 
                     if (cssLoaded && typeof callback === 'function') {
-                        setTimeout(function() {
-                            callback();
-                        }, 10);
+                        callback();
                     }
                 }).fail(function() {
                     scriptLoaded = true;
@@ -137,9 +118,7 @@ $(document).ready(function() {
                 });
             } else if (cssLoaded && typeof callback === 'function') {
 
-                setTimeout(function() {
-                    callback();
-                }, 10);
+                callback();
             }
         });
     }

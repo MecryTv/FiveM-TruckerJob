@@ -1,7 +1,6 @@
-RegisterNetEvent("truckerjob:hideUI", function(data, cb)
+RegisterNetEvent("hideUI", function()
    SendNUIMessage({ type = "hide" })
    SetNuiFocus(false, false)
-   cb({})
 end)
 
 RegisterNetEvent("truckerjob:updatePlayerData", function()

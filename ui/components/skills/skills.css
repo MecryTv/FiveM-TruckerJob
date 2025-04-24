@@ -345,23 +345,4 @@
     cursor: not-allowed;
 }
 
-/* Animationen für Skill-Updates */
-@keyframes highlight {
-    0% { background-color: transparent; }
-    50% { background-color: rgba(102, 187, 106, 0.2); }
-    100% { background-color: transparent; }
-}
 
-@keyframes downgrade {
-    0% { background-color: transparent; }
-    50% { background-color: rgba(239, 83, 80, 0.2); }
-    100% { background-color: transparent; }
-}
-
-.highlight {
-    animation: highlight 0.8s ease;
-}
-
-.downgrade {
-    animation: downgrade 0.8s ease;
-}
