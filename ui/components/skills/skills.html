@@ -1,1 +1,127 @@
-<p>Skills</p>
+<div class="skills-container">
+    <div class="main-content">
+        <div class="skills-header">
+            <div class="level-info">
+                <div class="level-badge">
+                    <span id="current-level">5</span>
+                </div>
+                <div class="stats-container">
+                    <h2>LKW Master</h2>
+                    <div class="skill-points-container">
+                        <i class="fas fa-bolt skill-point-icon"></i>
+                        <span class="skill-points-value" id="skill-points-value">3</span>
+                        <span class="skill-points-label">Skill Points</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress" id="xp-progress-bar" style="width: 75%;"></div>
+                <div class="progress-text">
+                    <span id="current-xp">750</span>/<span id="required-xp">1000</span> XP
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-trees-container">
+            <!-- Fahrtechnik Skill Tree -->
+            <div class="skill-tree">
+                <div class="skill-tree-header">
+                    <i class="fas fa-truck-moving skill-icon"></i>
+                    <h3>Lastkraftwagen</h3>
+                </div>
+                <div class="skill-item" data-skill="fuel_efficiency" data-level="4">
+                    <div class="skill-name-container">
+                        <div class="skill-name">Welchen LKW man führ das Fahren bekommt</div>
+                        <div class="current-level">Level: <span class="level-value">4</span>/10</div>
+                    </div>
+                    <div class="skill-level-bar">
+                        <div class="skill-control minus" data-action="remove">-</div>
+                        <div class="level-progress-container">
+                            <div class="level-markers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span>10</span>
+                            </div>
+                            <div class="level-progress" style="width: 40%;"></div>
+                        </div>
+                        <div class="skill-control plus" data-action="add">+</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logistik Skill Tree -->
+            <div class="skill-tree">
+                <div class="skill-tree-header">
+                    <i class="fas fa-route skill-icon"></i>
+                    <h3>Reichweite</h3>
+                </div>
+                <div class="skill-item" data-skill="cargo_capacity" data-level="3">
+                    <div class="skill-name-container">
+                        <div class="skill-name">Die Reichweite in der man Waren verladen kann</div>
+                        <div class="current-level">Level: <span class="level-value">3</span>/10</div>
+                    </div>
+                    <div class="skill-level-bar">
+                        <div class="skill-control minus" data-action="remove">-</div>
+                        <div class="level-progress-container">
+                            <div class="level-markers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span>10</span>
+                            </div>
+                            <div class="level-progress" style="width: 30%;"></div>
+                        </div>
+                        <div class="skill-control plus" data-action="add">+</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Geschäft Skill Tree -->
+            <div class="skill-tree">
+                <div class="skill-tree-header">
+                    <i class="fa-solid fa-box-open skill-icon"></i>
+                    <h3>Warenwert</h3>
+                </div>
+                <div class="skill-item" data-skill="negotiation" data-level="2">
+                    <div class="skill-name-container">
+                        <div class="skill-name">Wert der Waren die geladen werden können</div>
+                        <div class="current-level">Level: <span class="level-value">2</span>/10</div>
+                    </div>
+                    <div class="skill-level-bar">
+                        <div class="skill-control minus" data-action="remove">-</div>
+                        <div class="level-progress-container">
+                            <div class="level-markers">
+                                <span>1</span>
+                                <span>2</span>
+                                <span>3</span>
+                                <span>4</span>
+                                <span>5</span>
+                                <span>6</span>
+                                <span>7</span>
+                                <span>8</span>
+                                <span>9</span>
+                                <span>10</span>
+                            </div>
+                            <div class="level-progress" style="width: 20%;"></div>
+                        </div>
+                        <div class="skill-control plus" data-action="add">+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

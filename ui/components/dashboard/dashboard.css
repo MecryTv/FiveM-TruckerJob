@@ -13,14 +13,8 @@
   }
 
 
-  .animate-element {
-    opacity: 0 !important;
-    -webkit-transition: opacity 1s ease-out !important;
-    -moz-transition: opacity 1s ease-out !important;
-    transition: opacity 1s ease-out !important;
-  }
-  
-  .animate-element.visible {
+  /* Sicherstellen, dass alle Elemente standardmäßig sichtbar sind */
+  .stats-item, .jobs-wrapper, .job-row, .info {
     opacity: 1 !important;
   }
   

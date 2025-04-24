@@ -21,9 +21,11 @@ ui_page 'ui/index.html'
 
 files {
     'ui/index.html',
-    'ui/jquery.js',
-    'ui/script.js',
+    'ui/js/jquery.js',
+    'ui/js/script.js',
     'ui/style.css',
     'ui/img/*',
     'ui/components/**/*',
+    'ui/js/utils.js',
+    'ui/config.json',
 }
