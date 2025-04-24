@@ -1,7 +1,7 @@
 let dashboardIsVisible = true;
 
 $(document).ready(function() {
-    $('#app').hide();
+    $('#app').show();
 
     window.addEventListener('message', (event) => {
         const data = event.data;
@@ -46,23 +46,36 @@ $(document).ready(function() {
 
         const targetElement = $('#' + targetSection + '-content');
         const goingToDashboard = (targetSection === 'dashboard');
+        const goingToLeaderboard = (targetSection === 'leaderboard');
         const wasDashboardVisible = dashboardIsVisible;
 
         dashboardIsVisible = goingToDashboard;
         
         if (targetElement.children().length === 0) {
             loadComponent(targetSection, function() {
-                targetElement.fadeIn(300);
-        
-                if (goingToDashboard && !wasDashboardVisible && window.resetAndStartDashboardAnimation) {
+                if (goingToDashboard && !wasDashboardVisible) {
+                    targetElement.show();
                     window.resetAndStartDashboardAnimation();
+                } else if (goingToLeaderboard) {
+                    targetElement.show();
+                    if (window.resetAndStartLeaderboardAnimation) {
+                        window.resetAndStartLeaderboardAnimation();
+                    }
+                } else {
+                    targetElement.fadeIn(300);
                 }
             });
         } else {
-            targetElement.fadeIn(300);
-            
-            if (goingToDashboard && !wasDashboardVisible && window.resetAndStartDashboardAnimation) {
+            if (goingToDashboard && !wasDashboardVisible) {
+                targetElement.show();  // sofort sichtbar
                 window.resetAndStartDashboardAnimation();
+            } else if (goingToLeaderboard) {
+                targetElement.show();
+                if (window.resetAndStartLeaderboardAnimation) {
+                    window.resetAndStartLeaderboardAnimation();
+                }
+            } else {
+                targetElement.fadeIn(300);
             }
         }
     });
