@@ -3,6 +3,12 @@ let dashboardIsVisible = true;
 $(document).ready(function() {
     $('#app').show();
 
+    // Close Button Event Listener
+    $(document).on('click', '#close-btn', function() {
+        $('#app').hide();
+        $.post('https://' + GetParentResourceName() + '/truckerjob:hideUI', JSON.stringify({}));
+    });
+
     window.addEventListener('message', (event) => {
         const data = event.data;
 
