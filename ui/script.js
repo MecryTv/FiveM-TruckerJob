@@ -1,9 +1,7 @@
-
 let dashboardIsVisible = true;
 
 $(document).ready(function() {
-
-    $('#app').show();
+    $('#app').hide();
 
     window.addEventListener('message', (event) => {
         const data = event.data;
