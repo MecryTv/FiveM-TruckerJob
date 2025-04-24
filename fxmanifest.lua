@@ -9,6 +9,7 @@ version '1.0.0'
 client_scripts {
     'config.lua',
     'clients/**/*.lua',
+    'clients/utils.lua',
 }
 
 server_scripts {
@@ -23,6 +24,6 @@ files {
     'ui/jquery.js',
     'ui/script.js',
     'ui/style.css',
-    'ui/img/icon.png',
-    'ui/img/avatar.png',
+    'ui/img/*',
+    'ui/components/**/*',
 }

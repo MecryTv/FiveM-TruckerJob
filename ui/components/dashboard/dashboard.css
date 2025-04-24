@@ -1,0 +1,352 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.dashboard-container {
+    color: white;
+    height: auto;
+    overflow-y: hidden;
+  }
+  
+  .dash-content {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+
+  .animate-element {
+    opacity: 0 !important;
+    -webkit-transition: opacity 1s ease-out !important;
+    -moz-transition: opacity 1s ease-out !important;
+    transition: opacity 1s ease-out !important;
+  }
+  
+  .animate-element.visible {
+    opacity: 1 !important;
+  }
+  
+
+  
+  .stats-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: 10px;
+    max-width: 100%;
+  }
+  
+  .stats-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #1f2940;
+    border-radius: 12px;
+    padding: 12px 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 0;
+  }
+  
+  .stats-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #f4c225;
+  }
+  
+  .stats-content {
+    width: 100%;
+  }
+  
+  .stats-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .stats-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .stats-item:nth-child(1) .stats-value {
+    color: #44a682; /* Grün für Belohnung */
+  }
+  
+  .stats-item:nth-child(2) .stats-value {
+    color: #ff7700; /* Orange für Distanz */
+  }
+  
+  .stats-item:nth-child(3) .stats-value {
+    color: #a6cf12; /* Gold für Durchschnitt Zeit */
+  }
+  
+  .stats-item:nth-child(4) .stats-value {
+    color: #ff4d4d; /* Rot für Durchschnitt Schaden */
+  }
+  
+  .stats-item:nth-child(5) .stats-value {
+    color: #4dc9ff; /* Blau für Abgeschlossene Jobs */
+  }
+  
+  /* Jobs Section Styling */
+  .jobs-wrapper {
+    margin-top: 15px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  .jobs-table {
+    background-color: #1f2940;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: auto;
+    max-height: 334px; /* Erhöhte Höhe, um 4 Jobs vollständig anzuzeigen */
+    overflow-y: auto; /* Vertikales Scrollen ermöglichen */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  }
+  
+  /* Scrollbar-Styling für Chrome, Edge und Safari */
+  .jobs-table::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .jobs-table::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .jobs-table::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  /* Verstecke vertikale Scrollbar im gesamten Dokument */
+  body::-webkit-scrollbar {
+    width: 0;
+    display: none;
+  }
+  
+  body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .jobs-header {
+    display: flex;
+    background-color: #1a2235;
+    padding: 10px 15px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #888;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .job-row {
+    display: flex;
+    padding: 8px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+    min-height: 55px;
+  }
+  
+  .job-row:last-child {
+    border-bottom: none;
+  }
+  
+  .job-cell {
+    padding: 0 10px;
+  }
+  
+  .job-cell.company {
+    width: 20%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .job-cell.reward {
+    width: 15%;
+  }
+  
+  .job-cell.journey {
+    width: 30%;
+  }
+  
+  .job-cell.requirements {
+    width: 15%;
+  }
+  
+  .job-cell.actions {
+    width: 20%;
+    text-align: right;
+  }
+  
+  .company-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 38px;
+    height: 38px;
+    margin-right: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #f4c225;
+    font-size: 18px;
+  }
+  
+  .company-info {
+    flex: 1;
+  }
+  
+  .company-name {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+  
+  .company-desc {
+    font-size: 12px;
+    color: #888;
+  }
+  
+  .reward-amount {
+    font-weight: 700;
+    color: #44a682;
+    font-size: 16px;
+  }
+  
+  .journey-route {
+    color: #ffffff;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .route-arrow {
+    color: #4dc9ff;
+    font-size: 14px;
+  }
+  
+  .kilometer {
+    color: #ff7700;
+  }
+  
+  .journey-distance {
+    font-size: 12px;
+    color: #686565;
+    font-weight: 600;
+  }
+  
+  .req-icons {
+    display: flex;
+    gap: 10px;
+    height: 30px;
+  }
+  
+  .req-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #f4c225;
+  }
+  
+  .btn-completed, .btn-canceled {
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+  }
+  
+  .btn-completed {
+    background-color: #44a682;
+  }
+  
+  .btn-canceled {
+    background-color: #e74c3c;
+  }
+  
+  .info-wrapper {
+    background-color: #1f2940;
+    border-radius: 12px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .info .title {
+    color: #f4c225;
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+  
+  .info .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .info .content span {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.4;
+    display: flex;
+    align-items: center;
+  }
+  
+  .info .content span::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+  
+  .info .content .time::before {
+    background-color: #a6cf12; /* Gold/gelb für Zeit */
+  }
+  
+  .info .content .damage::before {
+    background-color: #ff4d4d; /* Rot für Schaden */
+  }
+  
+  .info .content .jobs::before {
+    background-color: #44a682; /* Grün für Jobs */
+  }
+  
