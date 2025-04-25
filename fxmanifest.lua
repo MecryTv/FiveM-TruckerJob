@@ -15,6 +15,7 @@ client_scripts {
 server_scripts {
     'config.lua',
     'servers/**/*.lua',
+    '@mysql-async/lib/MySQL.lua'
 }
 
 ui_page 'ui/index.html'

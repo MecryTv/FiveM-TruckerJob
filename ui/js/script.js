@@ -1,7 +1,7 @@
 let dashboardIsVisible = true;
 
 $(document).ready(function() {
-    $('#app').show();
+    $('#app').hide();
 
     // Close Button Event Listener
     $(document).on('click', '#close-btn', function() {
