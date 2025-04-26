@@ -1,0 +1,26 @@
+JavaScript
+
+// Einfache Benachrichtigung
+window.showToast({
+    type: 'success',  // 'success', 'info', 'warning', 'error'
+    title: 'Erfolg',  // Optional
+    message: 'Aktion erfolgreich abgeschlossen'
+});
+
+// Mit anderen Optionen
+window.showToast({
+    type: 'warning',
+    title: 'Achtung',
+    message: 'Bitte überprüfe deine Eingabe',
+    duration: 8000  // 8 Sekunden (Standard: 5000ms)
+});
+
+
+LUA
+SendNUIMessage({
+    type = "notification",
+    notificationType = "success",  -- 'success', 'info', 'warning', 'error'
+    title = "Erfolg",
+    message = "Aktion erfolgreich durchgeführt",
+    duration = 5000  -- Optional, in Millisekunden
+})

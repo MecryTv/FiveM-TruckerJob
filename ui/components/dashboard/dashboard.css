@@ -113,24 +113,37 @@
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     height: auto;
-    max-height: 330px; /* Erhöhte Höhe, um 4 Jobs vollständig anzuzeigen */
+    max-height: 320px; /* Erhöhte Höhe, um 4 Jobs vollständig anzuzeigen */
     overflow-y: auto; /* Vertikales Scrollen ermöglichen */
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    position: relative; /* Für korrekte Positionierung der Elemente */
+    overflow-x: hidden; /* Horizontales Scrollen verhindern */
+    margin-right: 0; /* Kein negativer Margin mehr, um Abrundung zu bewahren */
+    border-top-right-radius: 12px; /* Explizit die obere rechte Ecke definieren */
+    border-bottom-right-radius: 12px; /* Explizit die untere rechte Ecke definieren */
+    -ms-overflow-style: none; /* IE und Edge */
+    scrollbar-width: none; /* Firefox */
   }
   
-  /* Scrollbar-Styling für Chrome, Edge und Safari */
+  /* Scrollbar-Styling für Chrome, Edge und Safari - Scrollbar versteckt aber funktional */
   .jobs-table::-webkit-scrollbar {
-    width: 8px;
+    width: 0; /* Keine Breite = unsichtbar */
+    height: 0;
+    background: transparent; /* Komplett transparent */
   }
   
   .jobs-table::-webkit-scrollbar-track {
     background: transparent;
+    margin: 0;
   }
   
   .jobs-table::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
+    background: transparent;
+    border: none;
+  }
+  
+  /* Hover-Effekt für besseres Scrollen */
+  .jobs-table {
+    scrollbar-width: none; /* Firefox */
   }
   
   /* Verstecke vertikale Scrollbar im gesamten Dokument */
@@ -148,6 +161,7 @@
     display: flex;
     background-color: #1a2235;
     padding: 10px 15px;
+    padding-right: 15px; /* Standard-Padding rechts */
     font-size: 11px;
     font-weight: 600;
     text-transform: uppercase;
@@ -156,6 +170,12 @@
     top: 0;
     z-index: 10;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%; /* Normale Breite */
+    box-sizing: border-box;
+    margin-right: 0; /* Kein rechter Rand */
+    right: 0; /* Vollständige Ausrichtung nach rechts */
+    height: 41px; /* Feste Höhe für den Header */
+    border-top-right-radius: 12px; /* Abgerundete obere Ecke rechts */
   }
   
   .job-row {

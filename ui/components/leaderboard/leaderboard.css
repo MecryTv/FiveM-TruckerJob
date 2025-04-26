@@ -15,6 +15,28 @@
   font-family: 'Oleo Script', sans-serif;
 }
 /* Leaderboard Table Styles */
+.player-stats-container {
+  margin-bottom: 25px;
+  background-color: rgba(22, 24, 32, 0.75);
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+.player-stats-container h3 {
+  color: #aacbff;
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
 .leaderboard-wrapper {
   margin-bottom: 25px;
 }
@@ -26,13 +48,27 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   height: auto;
   max-height: 394px; /* Finale angepasste Höhe für genau 4 komplette Einträge */
-  overflow-y: auto; /* Enable vertical scrolling nur nach dem 4. Eintrag */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+  overflow-y: auto; /* Enable vertical scrolling via mouse hovering */
+  scrollbar-width: none !important; /* Firefox - Scrollbar ausblenden */
+  -ms-overflow-style: none !important; /* IE und Edge - Scrollbar ausblenden */
   width: 100%;
 }
 
-/* Scrollbar-Styling entfernt */
+/* Scrollbar-Styling - Scrollbar vollständig versteckt aber funktional */
+.leaderboard-table::-webkit-scrollbar,
+.leaderboard-table::-webkit-scrollbar-button,
+.leaderboard-table::-webkit-scrollbar-track,
+.leaderboard-table::-webkit-scrollbar-track-piece,
+.leaderboard-table::-webkit-scrollbar-thumb,
+.leaderboard-table::-webkit-scrollbar-corner,
+.leaderboard-table::-webkit-resizer {
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
 
 .leaderboard-header-row {
   display: flex;

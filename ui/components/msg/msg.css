@@ -1,0 +1,148 @@
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 300px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.toast {
+    background: linear-gradient(135deg, rgba(45, 52, 65, 0.95), rgba(32, 36, 45, 0.95));
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    animation: slide-in 0.4s ease forwards;
+    transform: translateX(120%);
+    opacity: 0;
+    border-left: 4px solid;
+    max-width: 100%;
+}
+
+.toast.success {
+    border-color: #4CAF50;
+}
+
+.toast.info {
+    border-color: #2196F3;
+}
+
+.toast.warning {
+    border-color: #FFC107;
+}
+
+.toast.error {
+    border-color: #F44336;
+}
+
+.toast-icon {
+    margin-right: 12px;
+    font-size: 20px;
+    min-width: 24px;
+    text-align: center;
+}
+
+.toast.success .toast-icon {
+    color: #4CAF50;
+}
+
+.toast.info .toast-icon {
+    color: #2196F3;
+}
+
+.toast.warning .toast-icon {
+    color: #FFC107;
+}
+
+.toast.error .toast-icon {
+    color: #F44336;
+}
+
+.toast-content {
+    flex: 1;
+}
+
+.toast-title {
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.toast-message {
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.toast-progress-bar {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform-origin: left;
+    animation: progress 5s linear forwards;
+}
+
+.toast-close {
+    margin-left: 12px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.toast-close:hover {
+    color: white;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+@keyframes progress {
+    0% {
+        transform: scaleX(1);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .toast-container {
+        width: calc(100% - 40px);
+        max-width: none;
+    }
+}

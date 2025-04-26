@@ -27,7 +27,7 @@ function sendTruckerDataToUI()
         local playerStats = data[1]
         
         if not playerStats then
-            print("Fehler: Keine Spielerdaten gefunden")
+            -- Keine Spielerdaten gefunden
             return
         end
         
@@ -57,6 +57,94 @@ function sendTruckerDataToUI()
         }
         
         SendNUIMessage(truckerData)
-        print("Sending dashboard data from DB: " .. json.encode(truckerData))
+        -- Dashboard data sent
     end)
 end
+
+function loadJobsData()
+    ESX.TriggerServerCallback('getJobsData', function (data) 
+        -- Wenn keine Daten vorhanden sind oder die Daten leer sind
+        if not data or #data == 0 then
+            SendNUIMessage({
+                type = "jobData",
+                jobs = "noJobData"
+            })
+            return
+        end
+        
+        -- Daten in das richtige Format umwandeln
+        local formattedJobs = {}
+        for _, jobsData in ipairs(data) do
+            -- Erstelle das formatierte Job-Objekt mit entsprechenden Feldern
+            local jobObject = {
+                icon = "fas fa-building", -- Verwende immer ein Standard-Icon
+                title = jobsData.title,
+                description = jobsData.description,
+                earnings = jobsData.verdienst,
+                startLocation = jobsData.von,
+                endLocation = jobsData.bis,
+                distance = jobsData.distanz,
+                requirements = jobsData.anforderungen,
+                type = jobsData.type
+            }
+            
+            table.insert(formattedJobs, jobObject)
+        end
+        
+        -- Formatierte Daten senden mit "type" und dem Array unter "jobs"
+        SendNUIMessage({
+            type = "jobData",
+            jobs = formattedJobs
+        })
+    end)
+end
+
+RegisterNetEvent('truckerJob:receiveSkillsData')
+AddEventHandler('truckerJob:receiveSkillsData', function(data)
+    -- Skill-Daten empfangen
+    
+    -- Überprüfen, ob data und data.skills existieren
+    if not data then
+        -- Keine Daten empfangen
+        return
+    end
+    
+    if not data.skills then
+        -- Keine skills gefunden
+        return
+    end
+    
+    -- Daten an die UI senden
+    -- Skills-Daten an UI gesendet
+    SendNUIMessage({
+        type = "skillsData",
+        skills = data.skills
+    })
+end)
+
+-- Skill-Daten vom Server laden
+function loadSkillData()
+    -- Event zum Server senden, um Skill-Daten anzufordern
+    TriggerServerEvent('getSkillsData')
+    -- Skills-Daten angefordert
+end
+
+-- Leaderboard-Daten vom Server empfangen und an die UI senden
+RegisterNetEvent('truckerJob:receiveLeaderboardData')
+AddEventHandler('truckerJob:receiveLeaderboardData', function(data)
+    -- Leite die empfangenen Daten an die UI weiter
+    SendNUIMessage({
+        type = "leaderboardData",
+        stats = data.stats,
+        playerInfo = data.playerInfo
+    })
+end)
+
+-- Leaderboard-Daten anfordern, wenn der entsprechende NUI-Callback empfangen wird
+RegisterNUICallback('getLeaderboardData', function(data, cb)
+    -- Sende eine Anfrage an den Server
+    TriggerServerEvent('getLeaderboardData')
+    
+    -- Bestätige den Empfang des Callbacks
+    cb('ok')
+end)

@@ -1,3 +1,6 @@
 {
-    
+    "baseXP": 1000,
+    "targetXP": 60000,
+    "levels": 60,
+    "maxSkillPoints": 25
 }
