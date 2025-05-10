@@ -99,36 +99,6 @@ function loadJobsData()
     end)
 end
 
-RegisterNetEvent('truckerJob:receiveSkillsData')
-AddEventHandler('truckerJob:receiveSkillsData', function(data)
-    -- Skill-Daten empfangen
-    
-    -- Überprüfen, ob data und data.skills existieren
-    if not data then
-        -- Keine Daten empfangen
-        return
-    end
-    
-    if not data.skills then
-        -- Keine skills gefunden
-        return
-    end
-    
-    -- Daten an die UI senden
-    -- Skills-Daten an UI gesendet
-    SendNUIMessage({
-        type = "skillsData",
-        skills = data.skills
-    })
-end)
-
--- Skill-Daten vom Server laden
-function loadSkillData()
-    -- Event zum Server senden, um Skill-Daten anzufordern
-    TriggerServerEvent('getSkillsData')
-    -- Skills-Daten angefordert
-end
-
 -- Leaderboard-Daten vom Server empfangen und an die UI senden
 RegisterNetEvent('truckerJob:receiveLeaderboardData')
 AddEventHandler('truckerJob:receiveLeaderboardData', function(data)
@@ -148,3 +118,34 @@ RegisterNUICallback('getLeaderboardData', function(data, cb)
     -- Bestätige den Empfang des Callbacks
     cb('ok')
 end)
+
+function getSkillsData()
+    ESX.TriggerServerCallback('getSkillsData', function (data) 
+        if not data then 
+            SendNUIMessage({
+                type = "getSkillsData",
+                skills = "noSkillsData"
+            })
+            return
+        end
+
+        local formattedSkills = {}
+        for _, skillData in ipairs(data) do
+            local skillObject = {
+                level = skillData.level,
+                nextLvlXP = skillData.nextLvlXP,
+                currentXP = skillData.currentXP,
+                skillPoints = skillData.skillPoints,
+                lkwLvl = skillData.lkwLvl,
+                distanceLvl = skillData.distanceLvl,
+                wareLvl = skillData.wareLvl
+            }
+            table.insert(formattedSkills, skillObject)
+        end
+
+        SendNUIMessage({
+            type = "getSkillsData",
+            skills = formattedSkills
+        })
+    end)
+end

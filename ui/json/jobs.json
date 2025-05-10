@@ -1,0 +1,40 @@
+{
+    "Jobs": {
+        "LowLevelJobs": {
+            "Id": "",
+            "Verdienst": 0,
+            "Title": "",
+            "LKWCoords": {},
+            "StorageCoords": {},
+            "StartTransportCoords": {},
+            "EndTransportCoords": {},
+            "StartTransportName": "",
+            "EndStransportName": "",
+            "Anforderung": {}
+        },
+        "MidLevelJobs": {
+            "Id": "",
+            "Verdienst": 0,
+            "Title": "",
+            "LKWCoords": {},
+            "StorageCoords": {},
+            "StartTransportCoords": {},
+            "EndTransportCoords": {},
+            "StartTransportName": "",
+            "EndStransportName": "",
+            "Anforderung": {}
+        },
+        "HighLevelJobs": {
+            "Id": "",
+            "Verdienst": 0,
+            "Title": "",
+            "LKWCoords": {},
+            "StorageCoords": {},
+            "StartTransportCoords": {},
+            "EndTransportCoords": {},
+            "StartTransportName": "",
+            "EndStransportName": "",
+            "Anforderung": {}
+        }
+    }
+}

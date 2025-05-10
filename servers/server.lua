@@ -56,41 +56,6 @@ ESX.RegisterServerCallback('getJobsData', function (source, cb)
     end)
 end)
 
-RegisterNetEvent('getSkillsData')
-AddEventHandler('getSkillsData', function ()
-    local source = source
-    local xPlayer = ESX.GetPlayerFromId(source)
-
-    if not xPlayer then 
-        print("Fehler: Spieler nicht gefunden für Skills-Anfrage")
-    end
-
-    local identifier = xPlayer.identifier
-    
-    MySQL.Async.fetchAll("SELECT * FROM truckerjob_skills WHERE identifier = @identifier", {
-        ['@identifier'] = identifier
-    }, function (skillsResult)
-        local skills = {}
-
-        for _, skill in ipairs(skillsResult) do 
-            local skillEntry = {
-                level = skill.level,
-                nextLvlXP = skill.nextLvlXP,
-                currentXP = skill.currentXP,
-                skillPoints = skill.skillPoints,
-                lkwLvl = skill.lkwLvl,
-                distanceLvl = skill.distanceLvl,
-                wareLvl = skill.wareLvl
-            }
-            table.insert(skills, skillEntry)
-        end
-
-        TriggerClientEvent('truckerJob:receiveSkillsData', source, {
-            skills = skills
-        })
-    end)
-end)
-
 -- Leaderboard-Daten für alle Spieler aus der truckerjob_stats Tabelle abrufen
 RegisterNetEvent('getLeaderboardData')
 AddEventHandler('getLeaderboardData', function()
@@ -189,3 +154,15 @@ AddEventHandler('setIdentFirstTime', function()
         print("Fehler: Spieler konnte nicht gefunden werden")
     end
 end)
+
+ESX.RegisterServerCallback('getSkillsData', function (source, cb)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    local identifier = xPlayer.identifier
+
+    MySQL.Async.fetchAll("SELECT * FROM truckerjob_skills WHERE identifier = @identifier", {
+        ['@identifier'] = identifier
+    }, function(result)
+        cb(result)
+    end)
+end)
+    

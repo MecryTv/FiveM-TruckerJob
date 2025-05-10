@@ -1,31 +1,67 @@
+<div id="toast-container" class="toast-container"></div>
+
 <div class="jobs-container">
-    <!-- Jobs-Übersicht (angezeigt, wenn isActiveJob = false) -->
-    <div id="jobs-list-container" class="jobs-content">
-        <h2>Verfügbare Jobs</h2>
-        <div class="jobs-list">
-            <p>Liste der Jobs wird geladen...</p>
-            <!-- Hier werden dynamisch Jobs eingeblendet -->
-        </div>
+  <!-- Jobs-Übersicht (angezeigt, wenn isActiveJob = false) -->
+  <div class="jobList-table">
+    <div class="jobList-header-row">
+      <div class="jobsList-cell type">Type</div>
+      <div class="jobList-cell firma">Unternehmen</div>
+      <div class="jobList-cell cash">Auszahlung</div>
+      <div class="jobList-cell pickup">Abholung</div>
+      <div class="jobList-cell dropoff">Abgabe</div>
+      <div class="jobList-cell requirements">Anforderungen</div>
+      <div class="jobList-cell action">Aktion</div>
     </div>
 
-    <!-- Aktiver Job Ansicht (angezeigt, wenn isActiveJob = true) -->
-    <div id="active-job-container" class="jobs-content" style="display: none;">
-        <h2>Aktiver Job</h2>
-        <div class="job-details">
-            <div class="job-info">
-                <p>Jobtyp: <span id="job-type">Frachtlieferung</span></p>
-                <p>Ziel: <span id="job-destination">Hafen</span></p>
-                <p>Entfernung: <span id="job-distance">0</span> km</p>
-                <p>Vergütung: $<span id="job-payment">0</span></p>
-            </div>
-            <div class="job-progress">
-                <p>Fortschritt:</p>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="job-progress-bar"></div>
-                </div>
-                <p><span id="job-progress">0</span>%</p>
-            </div>
-            <button id="cancel-job-btn" class="job-button cancel">Job abbrechen</button>
-        </div>
+    <div class="jobsList-row">
+      <div class="jobsList-cell type">MID</div>
+      <div class="jobsList-cell firma">Muster GmbH</div>
+      <div class="jobsList-cell cash">€25</div>
+      <div class="jobsList-cell pickup">Berlin-Mitte</div>
+      <div class="jobsList-cell dropoff">Berlin-Kreuzberg</div>
+      <div class="jobsList-cell requirements">Führerschein B</div>
+      <div class="jobsList-cell action">
+        <button class="btn-accept">Annehmen</button>
+      </div>
     </div>
+
+    <div class="jobsList-row">
+      <div class="jobsList-cell type">Abholung</div>
+      <div class="jobsList-cell firma">Beispiel AG</div>
+      <div class="jobsList-cell cash">€30</div>
+      <div class="jobsList-cell pickup">Charlottenburg</div>
+      <div class="jobsList-cell dropoff">Tempelhof</div>
+      <div class="jobsList-cell requirements">Gabelstaplerschein</div>
+      <div class="jobsList-cell action">
+        <button class="btn-accept">Annehmen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Truck Job question -->
+  <div class="truckjob" id="accept-job" style="display: none">
+    <div class="truckjob-content">
+      <h2>Job Truck</h2>
+      <p>Sie haben einen Trucker Job ausgewählt. Möchten Sie den Job annehmen?</p>
+
+      <div class="truck-options">
+        <label>
+          <input type="checkbox" name="truckOption" value="eigenen" />
+          Eigenen Truck
+        </label>
+        <label>
+          <input type="checkbox" name="truckOption" value="mieten" />
+          Truck Leihen
+        </label>
+      </div>
+
+      <button class="btn-accept" id="confirm-accept">Ja</button>
+      <button class="btn-decline" id="cancel-accept">Nein</button>
+    </div>
+  </div>
+
+  <!-- Aktiver Job Ansicht (angezeigt, wenn isActiveJob = true) -->
+  <div id="active-job-container" class="jobs-content" style="display: none">
+    <h2>Aktiver Job</h2>
+  </div>
 </div>

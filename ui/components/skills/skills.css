@@ -409,6 +409,12 @@
     transition: all 0.2s ease;
 }
 
+.skill-control:disabled {
+    background-color: rgba(128,128,128,0.3);
+    cursor: not-allowed;
+    color: #ccc;
+}
+
 .skill-control.disabled, .skill-control.temp-disabled {
     background-color: rgba(0, 0, 0, 0.3);
     cursor: not-allowed;
@@ -510,5 +516,3 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
-
-

@@ -19,15 +19,15 @@
             <div class="progress-bar-new">
                 <div class="progress xp-progress-bar" id="xp-progress-bar" style="width: 0%;"></div>
                 <div class="progress-text">
-                    <span class="xp-current">0</span>
+                    <span class="xp-current" id="xp-current">0</span>
                     <span class="xp-separator">/</span>
-                    <span class="xp-required">0</span>
+                    <span class="xp-required" id="xp-required">0</span>
                     <span class="xp-label">XP</span>
                 </div>
             </div>
         </div>
 
-        <div class="skill-trees-container">
+        <div class="skill-trees-container" id="skills">
             <!-- Fahrtechnik Skill Tree -->
             <div class="skill-tree">
                 <div class="skill-tree-header">
@@ -46,7 +46,7 @@
                         <div class="current-level">Level: <span class="level-value">0</span>/10</div>
                     </div>
                     <div class="skill-level-bar">
-                        <div class="skill-control minus" data-action="remove">-</div>
+                        <button class="skill-control minus" data-action="remove" data-skill="lkw">-</button>
                         <div class="level-progress-container">
                             <div class="level-markers">
                                 <span>1</span>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="level-progress" style="width: 0%;"></div>
                         </div>
-                        <div class="skill-control plus" data-action="add">+</div>
+                        <button class="skill-control plus" data-action="add" data-skill="lkw">+</button>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <div class="current-level">Level: <span class="level-value">0</span>/10</div>
                     </div>
                     <div class="skill-level-bar">
-                        <div class="skill-control minus" data-action="remove">-</div>
+                        <button class="skill-control minus" data-action="remove" data-skill="distance">-</button>
                         <div class="level-progress-container">
                             <div class="level-markers">
                                 <span>1</span>
@@ -101,7 +101,7 @@
                             </div>
                             <div class="level-progress" style="width: 0%;"></div>
                         </div>
-                        <div class="skill-control plus" data-action="add">+</div>
+                        <button class="skill-control plus" data-action="add" data-skill="distance">+</button>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                         <div class="current-level">Level: <span class="level-value">0</span>/10</div>
                     </div>
                     <div class="skill-level-bar">
-                        <div class="skill-control minus" data-action="remove">-</div>
+                        <button class="skill-control minus" data-action="remove" data-skill="ware">-</button>
                         <div class="level-progress-container">
                             <div class="level-markers">
                                 <span>1</span>
@@ -140,7 +140,7 @@
                             </div>
                             <div class="level-progress" style="width: 0%;"></div>
                         </div>
-                        <div class="skill-control plus" data-action="add">+</div>
+                        <button class="skill-control plus" data-action="add" data-skill="ware">+</button>
                     </div>
                 </div>
             </div>
